@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: go-hello-world
+  template:
+    metadata:
+      labels:
+        name: go-hello-world
+    spec:
+      containers:
+      - name: application
+        image: shubham1010/go-hello-world:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080
